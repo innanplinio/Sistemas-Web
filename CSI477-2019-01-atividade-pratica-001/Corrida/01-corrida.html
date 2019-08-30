@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script type="text/javascript">
+
+        var conta=0;
+        var array=[];
+        var arrNome=[];
+        var listatempo = new Array();
+        var listanome = new Array();
+
+        function calculaVencedor(){
+
+            for(i=0;i<listatempo.length;i++){
+                for(j=0;j<listatempo.length;j++){
+                    if(listatempo[j]>listatempo[i]){
+                        var aux = listatempo[j];
+                        var aux2 = listanome[j];
+                        listanome[j] = listanome[i];
+                        listatempo[j] = listatempo[i];
+                        listanome[i] = aux2;
+                        listatempo[i] = aux;
+
+                    }
+                }
+            }
+            var teste = 0;
+            conta = 0;
+            var Result = "Vencedor(a)";
+            while(teste<listanome.length){
+                conta++
+                var parte1 = "<tr><th> " + conta + "</th>";
+                var nome = "<th>" + listanome[teste] + "</th>"
+                var tempo = "<th>" + listatempo[teste] + "</th>"
+                var result = "<th>" + Result + "</th>"
+                if(listatempo[conta]>listatempo[0]){
+                    Result = "";
+                }
+
+                document.getElementById("tabela_venc").innerHTML += parte1 + nome + tempo + result;
+                document.getElementById("tabela_venc").innerHTML += "</td></tr>";
+                teste++;
+            }
+        }
+
+
+        function novaLinha(){
+
+            if(conta < 6) {
+                conta++;
+                var Nome = document.getElementById("nome").value;
+                var Tempo = document.getElementById("tempo").value;
+                listatempo.push(Tempo);
+                listanome.push(Nome);
+
+                var parte1 = "<tr><th> " + conta + "</th>";
+                var nome = "<th>" + Nome + "</th>"
+                var tempo = "<th>" + Tempo + "</th>"
+
+                document.getElementById("tabela_produto").innerHTML += parte1 + nome + tempo ;
+                document.getElementById("tabela_produto").innerHTML += "</td></tr>";
+            }
+        }
+    </script>
+</head>
+<body>
+<h2>Cadastrar Competidor</h2>
+<form class="form-group" name="Form" action="#">
+    <label for="nome">Nome</label><br>
+    <input class="form-control" type="text" id="nome"><br>
+    <label for="tempo">Tempo em Segundos</label><br>
+    <input class="form-control" type="number" id="tempo"><br>
+    <input class="btn btn-danger" type="button" value="Inserir Entrada" onclick="novaLinha()"></input>
+</form>
+
+<table id="tabela_produto" border="1" >
+    <h3>Relacao de competidores</h3>
+    <tr>
+        <th>Largada</th>
+        <th>Competidor(a)</th>
+        <th>Tempo (s)</th>
+    </tr>
+    <br>
+</table><br>
+
+<input class="btn btn-danger" type="button" value="Calcular Vencedor" onclick="calculaVencedor()"></input><br><br>
+
+<table id = "tabela_venc" border="">
+    <tr>
+        <th>Posicao</th>
+        <th>Competidor</th>
+        <th>Tempo (s)</th>
+        <th>Resultado</th>
+    </tr>
+</table>
+
+</body>
+</html>

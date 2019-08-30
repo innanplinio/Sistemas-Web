@@ -1,0 +1,37 @@
+
+Alterar tabelas::
+php artisan make:migration --create=estados alter_estados_table
+
+php artisan make:migration --create=alunos create_alunos_table
+
+ADICIONAR ROUTE EM PHP.WEB
+
+PHP ARTISAN MAKE:MODEL "NOME" -A
+
+php artisan migrate	
+
+php artisan make:controller "nome"
+
+php artisan tinker
+DB::table('estados')->get(); 
+App\Estado::all(); 
+App\Estado::where('id',5)->get(); 
+$e = App\Estado::where('id',5)->get();
+$e = App\Estado::where('id', '<',5)->get();  
+$e[1]->sigla
+$e = App\Estado::where('id','!=',5)->OrderBy('nome','desc')->get();  
+$e->save(); 
+$e = App\Estado::find(5);
+
+$e = new App\Estado; 
+$e->nome="Shallow now" 
+$e->sigla="SN" 
+$e->save(); 
+$e = App\Estado::where('sigla','SN')->get(); 
+
+
+
+$e = App\Estado::find(28);
+$ex->delete(); 
+
+$ex = App\Estado::destroy(28)

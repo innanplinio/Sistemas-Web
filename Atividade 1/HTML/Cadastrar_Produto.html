@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cadastrar Produto</title>
+</head>
+<body>
+	<h1>Cadastrar Produto</h1>
+	<form name="" action="#">
+		<label for="nome">Nome</label><br>
+		<input type="text" id="nome"><br>
+		<label for="peso">Peso</label><br>
+		<input type="text" id="peso"><br>
+		<label for="und">Unidade de Medida</label><br>
+		<input type="text" id="und"><br>
+		<label for="val">Valor</label><br>
+		<input type="text" id="val"><br>
+		<label for="estq">Estoque Inicial</label><br>
+		<input type="text" id="estq"><br>
+		<label for="mercado">Mercado</label><br>
+		<input type="radio" name="mercado" value="i" id = "Mercado">Interno<br>
+		<input type="radio" name="mercado" value="e">Externo<br>
+		<label for="fornecedor">Fornecedor</label><br>
+		<select id = "fornecedor">
+			<option value="#">Selecione um fornecedor</option>
+			<option value="1">Fornecedor 1</option>
+			<option value="2">Fornecedor 2</option>
+			<option value="3">Fornecedor 3</option>
+		</select><br><br><br><br>
+		<button type="submit">Confirmar</button>
+		<input type="button" value="Voltar" onclick="history.go(-1)">
+	</form>
+
+</body>
+</html>
